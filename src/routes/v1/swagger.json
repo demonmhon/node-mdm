@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "express-4x-api-starter",
+    "description": "A starter template for an Express 4.x API, now compliant with OpenAPI 3.0.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/v1",
+      "description": "Development server"
+    },
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Production server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "user",
+      "description": "Operations about users"
+    }
+  ],
+  "paths": {
+    "/data": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "List all collections",
+        "description": "Retrieves a list of all collections.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "A list of collections.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Collection"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No collections found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Collection": {
+        "type": "object",
+        "required": [
+          "id",
+          "items"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "1"
+          },
+          "items": {
+            "type": "number",
+            "example": 100
+          }
+        }
+      }
+    }
+  }
+}
