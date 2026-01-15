@@ -19,4 +19,17 @@ export const getAll = (req: Request, res: Response) => {
   });
 };
 
-export default { getAll };
+export const getById = (req: Request, res: Response) => {
+  const id = req.params.id;
+  if (!id) {
+    throw new BadRequest();
+  }
+  const collection = collections.find((item) => item.id == id);
+  if (collection) {
+    return res.send(collection);
+  }
+  throw new ResourceNotfound(`Collection ${id} not found`);
+};
+
+
+export default { getAll, getById };

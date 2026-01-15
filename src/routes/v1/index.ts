@@ -11,6 +11,7 @@ const routesV1 = () => {
   router
     .route('/data')
     .get(dataController.getAll)
+  router.route('/data/:id?').get(dataController.getById);
 
   return router;
 };
