@@ -17,15 +17,19 @@
   ],
   "tags": [
     {
-      "name": "user",
-      "description": "Operations about users"
+      "name": "data",
+      "description": "Operations about master data"
+    },
+    {
+      "name": "configuration",
+      "description": "Operations about managing master data"
     }
   ],
   "paths": {
     "/data": {
       "get": {
         "tags": [
-          "user"
+          "data"
         ],
         "summary": "List all collections",
         "description": "Retrieves a list of all collections.",
