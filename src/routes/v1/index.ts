@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import { serve, spec, swaggerJSON } from '../../controllers/v1/docs-controller';
 import dataController from '../../controllers/v1/data-controller';
+import manageController from '../../controllers/v1/manage-controller';
 
 const routesV1 = () => {
   const router = Router();
@@ -12,6 +13,9 @@ const routesV1 = () => {
     .route('/data')
     .get(dataController.getAll)
   router.route('/data/:id?').get(dataController.getById);
+  router.route('/manage/collections').get(manageController.getAllCollections);
+  router.route('/manage/collections').post(manageController.postCollection);
+
 
   return router;
 };
