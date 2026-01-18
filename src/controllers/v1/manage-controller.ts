@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { BadRequest } from '../../utils/custom-errors';
-import { createCollection } from '../../services/collection-service';
+import { createCollection, getCollectionByPath } from '../../services/collection-service';
 
 export const getAllCollections = (req: Request, res: Response) => {
   return res.send({
@@ -9,6 +9,27 @@ export const getAllCollections = (req: Request, res: Response) => {
   });
 }
 
+export const getAllCollectionById = async (req: Request, res: Response) => {
+  const rows = await getCollectionByPath(req.params.id);
+  if (rows) {
+    return res.send(rows);
+  }
+  return res.send({
+    total: 0,
+    data: [],
+  });
+}
+
+export const patchCollection = (req: Request, res: Response) => {
+  return res.send({
+    total: 0,
+    data: [],
+  });
+}
+
+export const deleteCollection = (req: Request, res: Response) => {
+  return res.status(204).send();
+}
 
 export const postCollection = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -36,5 +57,8 @@ export const postCollection = async (req: Request, res: Response, next: NextFunc
 
 export default {
   getAllCollections,
-  postCollection
+  postCollection,
+  getAllCollectionById,
+  patchCollection,
+  deleteCollection
 }

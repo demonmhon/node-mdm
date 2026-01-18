@@ -21,7 +21,7 @@
       "description": "Operations about master data"
     },
     {
-      "name": "configuration",
+      "name": "managing",
       "description": "Operations about managing master data"
     }
   ],
@@ -92,7 +92,7 @@
     "/manage/collections": {
       "get": {
         "tags": [
-          "configuration"
+          "managing"
         ],
         "summary": "List all collections",
         "description": "Retrieves a list of all collections for management purposes.",
@@ -118,7 +118,7 @@
       },
       "post": {
         "tags": [
-          "configuration"
+          "managing"
         ],
         "summary": "Create a new collection",
         "description": "Creates a new collection with the provided data.",
@@ -148,6 +148,41 @@
           }
         }
       }
+    },
+    "/manage/collections/{collectionId}": {
+      "get": {
+        "tags": [
+          "managing"
+        ],
+        "summary": "Get a single collection",
+        "description": "Retrieves a single collection by its ID.",
+        "parameters": [
+          {
+            "name": "collectionId",
+            "in": "path",
+            "description": "The ID of the collection to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single collection.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Collection"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Collection not found"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -165,7 +200,8 @@
           },
           "path": {
             "type": "string",
-            "example": "/sample-collection"
+            "example": "sample-collection",
+            "description": "A unique path identifier for the collection."
           },
           "description": {
             "type": "string",

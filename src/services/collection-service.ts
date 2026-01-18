@@ -7,3 +7,8 @@ export const createCollection = async (name: string, path: string, description?:
   );
   return result.rows[0];
 };
+
+export const getCollectionByPath = async (path: string) => {
+  const result = await pool.query('SELECT * FROM collections WHERE path = $1', [path]);
+  return result.rows[0];
+};

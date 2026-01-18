@@ -15,6 +15,10 @@ const routesV1 = () => {
   router.route('/data/:id?').get(dataController.getById);
   router.route('/manage/collections').get(manageController.getAllCollections);
   router.route('/manage/collections').post(manageController.postCollection);
+  router.route('/manage/collections/:id?')
+    .get(manageController.getAllCollectionById)
+    .patch(manageController.patchCollection)
+    .delete(manageController.deleteCollection)
 
 
   return router;
