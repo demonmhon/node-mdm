@@ -8,7 +8,7 @@ import {
 import util from 'util';
 import _get from 'lodash/get';
 
-import { ResourceNotfound, BadRequest } from '../utils/custom-errors';
+import { ResourceNotfound, BadRequest } from '@/utils/custom-errors';
 
 export const handleNotFound = (req: Request, res: Response) => {
   const err = res.locals.err ? res.locals.err : null;

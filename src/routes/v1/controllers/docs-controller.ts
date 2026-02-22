@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import _get from 'lodash/get';
 
-import config from '../../config';
-import swaggerDocument from '../../routes/v1/swagger.json';
+import config from '../../../config';
+import swaggerDocument from '../swagger.json';
 const appPort = _get(config, 'app.port', 3000);
 
 const fixDevelopmentServerURL = () => {

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { BadRequest } from '../../utils/custom-errors';
-import { createCollection, getCollectionByPath } from '../../services/collection-service';
+import { BadRequest } from '@/utils/custom-errors';
+import { createCollection, getCollectionByPath } from '../services/collection-service';
 
 export const getAllCollections = (req: Request, res: Response) => {
   return res.send({

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { ResourceNotfound, BadRequest } from '../../utils/custom-errors';
+import { ResourceNotfound, BadRequest } from '@/utils/custom-errors';
 
 // TODO: implement real getAll() resource
 const collections = [

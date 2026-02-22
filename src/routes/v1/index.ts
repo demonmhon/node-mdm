@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import { serve, spec, swaggerJSON } from '../../controllers/v1/docs-controller';
-import dataController from '../../controllers/v1/data-controller';
-import manageController from '../../controllers/v1/manage-controller';
+import { serve, spec, swaggerJSON } from './controllers/docs-controller';
+import dataController from './controllers/data-controller';
+import manageController from './controllers/manage-controller';
 
 const routesV1 = () => {
   const router = Router();

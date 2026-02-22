@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   postgres:
-    image: postgres:16-alpine
+    image: postgres:18-alpine
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     environment:
@@ -12,7 +11,7 @@ services:
       - ./init-scripts:/docker-entrypoint-initdb.d 
       - postgres_data:/var/lib/postgresql/data
   adminer:
-    image: adminer
+    image: adminer:5
     container_name: eav_adminer
     restart: always
     ports:

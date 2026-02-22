@@ -1,4 +1,4 @@
-import pool from '../db';
+import pool from '@/db';
 
 export const createCollection = async (name: string, path: string, description?: string) => {
   const result = await pool.query(
