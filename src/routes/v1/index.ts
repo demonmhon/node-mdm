@@ -9,17 +9,15 @@ const routesV1 = () => {
   router.use('/docs', serve, spec);
   router.route('/swagger.json').get(swaggerJSON);
 
-  router
-    .route('/data')
-    .get(dataController.getAll)
+  router.route('/data').get(dataController.getAll);
   router.route('/data/:id?').get(dataController.getById);
   router.route('/manage/collections').get(manageController.getAllCollections);
   router.route('/manage/collections').post(manageController.postCollection);
-  router.route('/manage/collections/:id?')
+  router
+    .route('/manage/collections/:id?')
     .get(manageController.getAllCollectionById)
     .patch(manageController.patchCollection)
-    .delete(manageController.deleteCollection)
-
+    .delete(manageController.deleteCollection);
 
   return router;
 };

@@ -16,4 +16,8 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
+const query = (text: string, params?: any[]) => pool.query(text, params);
+const getClient = async () => pool.connect();
+
+export { query, getClient };
 export default pool;

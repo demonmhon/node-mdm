@@ -1,16 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
 import { BadRequest } from '@/utils/custom-errors';
-import { createCollection, getCollectionByPath } from '../services/collection-service';
+import {
+  createCollection,
+  getCollectionByKey,
+} from '../services/collection-service';
 
 export const getAllCollections = (req: Request, res: Response) => {
   return res.send({
     total: 0,
     data: [],
   });
-}
+};
 
 export const getAllCollectionById = async (req: Request, res: Response) => {
-  const rows = await getCollectionByPath(req.params.id);
+  const rows = await getCollectionByKey(req.params.id);
   if (rows) {
     return res.send(rows);
   }
@@ -18,20 +21,24 @@ export const getAllCollectionById = async (req: Request, res: Response) => {
     total: 0,
     data: [],
   });
-}
+};
 
 export const patchCollection = (req: Request, res: Response) => {
   return res.send({
     total: 0,
     data: [],
   });
-}
+};
 
 export const deleteCollection = (req: Request, res: Response) => {
   return res.status(204).send();
-}
+};
 
-export const postCollection = async (req: Request, res: Response, next: NextFunction) => {
+export const postCollection = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   try {
     const { name, description } = req.body;
     if (!name) {
@@ -54,11 +61,10 @@ export const postCollection = async (req: Request, res: Response, next: NextFunc
   }
 };
 
-
 export default {
   getAllCollections,
   postCollection,
   getAllCollectionById,
   patchCollection,
-  deleteCollection
-}
+  deleteCollection,
+};

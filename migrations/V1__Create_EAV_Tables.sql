@@ -42,11 +42,11 @@ INSERT INTO collections (name, key, description) VALUES
 
 -- 5.2 Sample data: Attributes for "Car Brands"
 INSERT INTO attributes (collection_id, name, key, type) VALUES 
-((SELECT id FROM collections WHERE key = 'car-brands'), 'Brand Name', 'brand_name', 'string'),
+((SELECT id FROM collections WHERE key = 'car-brands'), 'Brand Name', 'brandName', 'string'),
 ((SELECT id FROM collections WHERE key = 'car-brands'), 'Country of Origin', 'country', 'string');
 
 -- 5.3 Sample data: Collection Items for "Car Brands"
 INSERT INTO collection_items (collection_id, json_data) VALUES 
-((SELECT id FROM collections WHERE key = 'car-brands'), '{"brand_name": "Toyota", "country": "Japan"}'),
-((SELECT id FROM collections WHERE key = 'car-brands'), '{"brand_name": "Ford", "country": "USA"}'),
-((SELECT id FROM collections WHERE key = 'car-brands'), '{"brand_name": "BMW", "country": "Germany"}');
+((SELECT id FROM collections WHERE key = 'car-brands'), '{"brandName": "Toyota", "country": "Japan"}'),
+((SELECT id FROM collections WHERE key = 'car-brands'), '{"brandName": "Ford", "country": "USA"}'),
+((SELECT id FROM collections WHERE key = 'car-brands'), '{"brandName": "BMW", "country": "Germany"}');
